@@ -12,4 +12,6 @@ class Vuelo implements ServicioTuristico {
 
   @override
   double getPrecio() => politica.calcular(precioBase);
+
+  Vuelo copy() => Vuelo(id, precioBase, politica);
 }

@@ -144,7 +144,15 @@ class _ReservaScreenState extends State<ReservaScreen> {
         trailing: IconButton(
           icon: const Icon(Icons.add_circle_outline, color: Colors.green),
           tooltip: "Añadir al paquete",
-          onPressed: () => setState(() => paqueteRaiz.agregar(servicio)),
+          onPressed: () {
+            setState(() {
+              if (servicio is Vuelo) {
+                paqueteRaiz.agregar(servicio.copy());
+              } else if (servicio is Hotel) {
+                paqueteRaiz.agregar(servicio.copy());
+              }
+            });
+          },
         ),
       ),
     );

@@ -13,4 +13,6 @@ class Hotel implements ServicioTuristico {
 
   @override
   double getPrecio() => politica.calcular(precioNoche, noches);
+
+  Hotel copy() => Hotel(nombre, precioNoche, noches, politica);
 }
